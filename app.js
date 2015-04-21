@@ -4,15 +4,30 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+var DB = require('./config/DB');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var chapters = require('./routes/chapters');
+
+
 
 var app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+// DB stuff specifcally Mongo
+mongoose.connect("mongodb://localhost/gavins_blog");
+
+var chaptersSchema = mongoose.Schema({
+  title: String,
+  body: String,
+  photo: String,
+  date: { type: Date, default: Date.now }
+});
+
+var Chapter = mongoose.model("Chapter", chaptersSchema);
+
+DB.setDB(Chapter);
 
 app.use(favicon());
 app.use(logger('dev'));
@@ -21,8 +36,8 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
+app.use('/chapters', chapters);
+
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -38,9 +53,11 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
     app.use(function(err, req, res, next) {
         res.status(err.status || 500);
-        res.render('error', {
+        console.log(err);
+        console.log(err.stack);
+        res.send({
             message: err.message,
-            error: err
+            error: {}
         });
     });
 }
@@ -49,7 +66,9 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.render('error', {
+    console.log(err);
+    console.log(err.stack);
+    res.send({
         message: err.message,
         error: {}
     });
