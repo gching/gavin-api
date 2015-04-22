@@ -42,7 +42,7 @@ router.get('/:id', function(req, res, next){
       if (err){
         return next(err);
       }
-      
+
       res.send({chapter: doc});
 
     });
@@ -86,7 +86,7 @@ router.post("/:id", function(req,res,next){
 
     chapter_params._id = req.params.id;
     chapter_params.__v = doc.__v;
-    res.send(chapter_params);
+    res.send({chapter: chapter_params});
   });
 });
 
