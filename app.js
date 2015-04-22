@@ -5,7 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+
 var DB = require('./config/DB');
+var mongo_config = require('./config/mongo_config');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -16,7 +18,7 @@ var chapters = require('./routes/chapters');
 var app = express();
 
 // DB stuff specifcally Mongo
-mongoose.connect("mongodb://localhost/gavins_blog");
+mongoose.connect("mongodb://localhost/gavins_blog", mongo_config);
 
 var chaptersSchema = mongoose.Schema({
   title: String,

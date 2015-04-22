@@ -1,1 +1,4 @@
 node_modules
+
+## Ignore mongo config
+config/mongo_config.js
