@@ -1,6 +1,8 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="javascripts/materialize.min.js"></script>
 <script type="text/javascript" src="javascripts/backgroundVideo.min.js"></script>
+<script type="text/javascript" src="javascripts/jquery.sticky-kit.min.js"></script>
+
 <script>
 
 var setupBackgroundVideo = function setupBackgroundVideo(){
@@ -8,8 +10,8 @@ var setupBackgroundVideo = function setupBackgroundVideo(){
     $videoWrap: $('#video-wrap'),
     $outerWrap: $('#outer'),
     preventContextMenu: true,
-    parallax: true,
-    parallaxOptions: { effect: 1.7 }
+    parallax: false
+    //parallaxOptions: { effect: 1.7 }
   });
   return;
 };
@@ -23,6 +25,18 @@ $(document).ready(function(){
     $('.loader-div').hide();
   }, 100)
 */
+
+  // Enable tabs
+  $('ul.tabs').tabs();
+
+  // Enable sticky tabs
+  $('#stickTabs').stick_in_parent();
+
+  // Enable materialbox
+  $('.materialboxed').materialbox();
+
+  // Enable materialize parallax
+  $('.parallax').parallax();
 })
 
 

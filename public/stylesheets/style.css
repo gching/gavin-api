@@ -6,3 +6,11 @@
 .black-opac {
   background-color: rgba(0,0,0,0.1);
 }
+
+.stick-me {
+	z-index: 1;
+}
+
+.weight-200 {
+	font-weight: 200;
+}

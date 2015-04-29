@@ -1,0 +1,45 @@
+<div class="parallax-container">
+  <div class="parallax"><img src="images/default-2.jpg"></div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="valign-wrapper">
+      <div class="col s12 m2 l8 left-align">
+        <h1 class="light-blue-text weight-200">
+          CV<span class="hide-on-med-and-down"> (The Cool Stuff)</span>
+        </h1>
+
+      </div>
+      <div class="col s12 m10 l4 valign" style="padding-top: 20px;">
+        <a class="waves-effect waves-light btn">
+          <i class="mdi-file-cloud-download left hide-on-small-only"></i>
+          Download PDF
+        </a>
+      </div>
+    </div>
+
+  </div>
+  <p class="flow-text">Hi internet person, or the amazing and good looking person I directed to here. These are my skills whoever you are! Listed are my experiences, hobbies, lifestyles and everything in between. Wherever you need my skills, I will definitely be there!</p>
+
+  <div class="row">
+    <div class="col s4">
+      <h2 class="flow-text weight-200 light-blue-text">Where</h2>
+      <% include ./educ/uoft.ejs %>
+      <% include ./educ/nus.ejs %>
+    </div>
+    <div class="col s8">
+      <h2 class="flow-text weight-200 light-blue-text">Why</h2>
+      <% include ./work/felix.ejs %>
+      <% include ./work/nst.ejs %>
+      <% include ./work/apollo.ejs %>
+    </div>
+  </div>
+  <h2 class="flow-text weight-200 light-blue-text center-align">How</h2>
+  <% include ./skills/general %>
+  <% include ./skills/front %>
+  <% include ./skills/back %>
+  <% include ./skills/frameworks %>
+  <% include ./skills/languages %>
+
+</div>
