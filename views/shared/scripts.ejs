@@ -1,0 +1,30 @@
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="javascripts/materialize.min.js"></script>
+<script type="text/javascript" src="javascripts/backgroundVideo.min.js"></script>
+<script>
+
+var setupBackgroundVideo = function setupBackgroundVideo(){
+  $('#my-video').backgroundVideo({
+    $videoWrap: $('#video-wrap'),
+    $outerWrap: $('#outer'),
+    preventContextMenu: true,
+    parallax: true,
+    parallaxOptions: { effect: 1.7 }
+  });
+  return;
+};
+
+$(document).ready(function(){
+
+  setupBackgroundVideo();
+  /*
+  setTimeout(function(){
+    $('.vid-header').show();
+    $('.loader-div').hide();
+  }, 100)
+*/
+})
+
+
+
+</script>

@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <% include ./shared/head %>
+  <% include ./shared/head %>
 </head>
 <body>
+  <!--
+  <div class="loader-body">
+    <% include ./shared/loader %>
+  </div>
+  -->
+  <div class="vid-header" >
+    <% include ./shared/video_banner %>
+  </div>
+
+  <div class="app">
+    <div class="container">
+      
+    </div>
+  </div>
 
 
-
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script type="text/javascript" src="javascripts/materialize.min.js"></script>
-  <script type="text/javascript" src="javascripts/backgroundVideo.min.js"></script>
+  <% include ./shared/scripts %>
 </body>
 </html>
