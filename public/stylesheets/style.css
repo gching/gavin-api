@@ -14,3 +14,19 @@
 .weight-200 {
 	font-weight: 200;
 }
+
+.section-title {
+	padding-left: 10px;
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
+
+.card-para {
+	line-height: 1.5;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+strong {
+	color: #039be5;
+}
