@@ -7,6 +7,11 @@
   background-color: rgba(0,0,0,0.1);
 }
 
+.card-title-helper {
+	background-color: rgba(0,0,0,0.2);
+	bottom: 3px !important;
+}
+
 .stick-me {
 	z-index: 1;
 }
@@ -15,13 +20,21 @@
 	font-weight: 200;
 }
 
+.section-padding {
+	padding-top: 30px;
+}
 .section-title {
-	padding-left: 10px;
 	padding-top: 25px;
 	padding-bottom: 25px;
 }
 
 .card-content p {
+	line-height: 1.5;
+	font-size: 16px;
+	font-weight: 300;
+}
+
+.collection li {
 	line-height: 1.5;
 	font-size: 16px;
 	font-weight: 300;
