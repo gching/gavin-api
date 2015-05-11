@@ -1,3 +1,7 @@
+body {
+	background-color: #fcfcfc;
+}
+
 .content-overlay {
 	position: relative;
 	z-index: 20;
@@ -39,8 +43,21 @@
 	font-size: 16px;
 	font-weight: 300;
 }
-.card-para {
 
+.skill {
+	position: relative;
+	margin-bottom: 30px;
+	min-height: 150px;
+}
+.skill h5 {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+}
+.skills-collection img {
+	max-width: 100px;
+	max-height: 100px;
 }
 
 strong {
