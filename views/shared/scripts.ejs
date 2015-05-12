@@ -41,7 +41,13 @@ $(document).ready(function(){
 
   // Enable Scrollspy
   $('.scrollspy').scrollSpy({
-    offsetTop: 500
+    offsetTop: 470
+  });
+
+  // On arrowClick on video banner, trigger scroll spy to meSect by clicking.
+  $('#arrowClick').on('click', function(e){
+    console.log($('a[href=#meSect]'))
+    $('a[href=#meSect]').trigger('click');
   });
 })
 

@@ -2328,7 +2328,6 @@ $(document).ready(function(){
 		options = options || {
 			throttle: 100
 		};
-		console.log(offset);
 		offset.top = options.offsetTop || 0;
 		offset.right = options.offsetRight || 0;
 		offset.bottom = options.offsetBottom || 0;
@@ -2352,20 +2351,17 @@ $(document).ready(function(){
 		selector.on('scrollSpy:enter', function() {
 			visible = $.grep(visible, function(value) {
 	      return value.height() != 0;
-	    });
-
+	    });;
 			var $this = $(this);
 
 			if (visible[0]) {
 				$('a[href=#' + visible[0].attr('id') + ']').removeClass('active');
 				if ($this.data('scrollSpy:id') < visible[0].data('scrollSpy:id')) {
-					console.log("We put at 0");
 					visible.unshift($(this));
 					// Only trigger the handler here
 					$('a[href=#' + visible[0].attr('id') + ']').trigger('scrollSpyHandler');
 				}
 				else {
-					console.log("We put at end");
 					visible.push($(this));
 				}
 			}
@@ -2381,7 +2377,6 @@ $(document).ready(function(){
 
 		});
 		selector.on('scrollSpy:exit', function() {
-			console.log("We here brah?")
 			visible = $.grep(visible, function(value) {
 	      		return value.height() != 0;
 	    	});
