@@ -1,37 +1,58 @@
+/**
+	Background helpers
+*/
+
 body {
 	background-color: #f5f5f5;
-}
-
-.content-overlay {
-	position: relative;
-	z-index: 20;
 }
 
 .black-opac {
   background-color: rgba(0,0,0,0.1);
 }
 
-.card-title-helper {
-	background-color: rgba(0,0,0,0.2);
-	bottom: 3px !important;
-}
-
-.stick-me {
-	z-index: 2;
-}
-
+/**
+	Typography
+*/
 .weight-200 {
 	font-weight: 200;
 }
 
+/**
+	Video Banner
+*/
+.content-overlay {
+	position: relative;
+	z-index: 20;
+}
+
+strong {
+	color: #039be5;
+}
+
+/**
+	Section specific as well as headers, titles for sections
+*/
+/** deprecate*/
 .section-padding {
 	padding-top: 30px;
 	padding-bottom: 10px;
 }
 
+/** For internal padding in section titles */
 .section-title {
-	padding-top: 25px;
+	padding: 25px 0 25px 0;
+}
+
+.title-pad {
 	padding-bottom: 25px;
+}
+
+/**
+	Cards
+*/
+.card-title-helper {
+	background-color: rgba(0,0,0,0.2);
+	bottom: 3px !important;
 }
 
 .card-content p {
@@ -46,12 +67,22 @@ body {
 	font-weight: 300;
 }
 
+.about-cards .card-reveal p {
+	padding-top: 20px;
+}
+
+/**
+	Collections
+*/
 .collection li {
 	line-height: 1.5;
 	font-size: 16px;
 	font-weight: 300;
 }
 
+/**
+	Skills specific
+*/
 .skill {
 	position: relative;
 	margin-bottom: 30px;
@@ -68,26 +99,9 @@ body {
 	max-height: 100px;
 }
 
-.about-cards .card {
-	/**max-height: 340px;*/
-}
-
 /**
-.about-cards .card-image {
-	height: 100% !important;
-}
-
-.about-cards .card-image img {
-	height: 100% !important;
-}
+	Navigation bar
 */
-
-
-.about-cards .card-reveal p {
-	padding-top: 20px;
-}
-
-
-strong {
-	color: #039be5;
+.stick-me {
+	z-index: 2;
 }

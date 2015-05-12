@@ -2,30 +2,38 @@
   <div class="parallax"><img src="images/default-2.jpg"></div>
 </div>
 
-<div class="container section-padding">
+<div class="container section">
 
-  <div style="padding-bottom: 25px;">
+  <div class="title-pad">
     <div class="z-depth-1 center white">
       <h1 class="light-blue-text weight-200 section-title">
         CV<span class="hide-on-small-only"> (The Cool Stuff)</span>
       </h1>
-      <a class="waves-effect waves-light btn orange" style="margin-top:-30px;">
+      <a class="waves-effect waves-light btn orange" style="margin-top:-40px;">
         <i class="mdi-file-cloud-download left"></i>
         Download PDF
       </a>
     </div>
   </div>
 
-  <p class="flow-text">Hi <strong>internet person</strong>, or the <strong>amazing and good looking person</strong> I directed to here. Listed are my experiences, hobbies, lifestyles and everything in between.</p>
+  <p class="flow-text">
+    Hi <strong>internet person</strong>, or the <strong>amazing and good looking person</strong> I directed to here. Listed are my experiences, hobbies, lifestyles and everything in between.
+  </p>
 
-  <div class="center-align">
-    <h3 class="center-align light-blue-text weight-200" style="padding-top:15px;">Wherever you need my skills, I will be there!</h3>
-    <a class="center-align waves-effect waves-light btn-large orange">Contact Me</a>
+  <div class="center-align section">
+    <h3 class="center-align light-blue-text weight-200">
+      Wherever you need my skills, I will be there!
+    </h3>
+    <a class="center-align waves-effect waves-light btn-large orange">
+      Contact Me
+    </a>
   </div>
 
 
   <ul class="collection with-header">
-    <li class="collection-header"><h2 class="light-blue-text">Summary of Skills</h2></li>
+    <li class="collection-header">
+      <h2 class="light-blue-text">Summary of Skills</h2>
+    </li>
     <li class="collection-item">
       Initialized and developed <strong>marketing campaigns</strong> including video creation
     </li>
@@ -45,18 +53,18 @@
 
   <div class="row">
     <div id="stickCV" class="col s12 l6">
-      <h3 class="light-blue-text">Where</h2>
+      <h2 class="light-blue-text weight-200">Where</h2>
       <% include ./educ/uoft.ejs %>
       <% include ./educ/nus.ejs %>
     </div>
     <div class="col s12 l6">
-      <h3 class="light-blue-text">Why</h2>
+      <h2 class="light-blue-text weight-200">Why</h2>
       <% include ./work/felix.ejs %>
       <% include ./work/nst.ejs %>
       <% include ./work/apollo.ejs %>
     </div>
   </div>
-  <h2 class="light-blue-text center-align">How</h2>
+  <h2 class="light-blue-text center-align weight-200">How</h2>
   <% include ./skills/general %>
   <% include ./skills/front %>
   <% include ./skills/back %>
