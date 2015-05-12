@@ -29,6 +29,13 @@ strong {
 	color: #039be5;
 }
 
+.floating-arrow {
+	bottom: 170px;
+	position: absolute;
+  right: 50px;
+  z-index: 1000;
+}
+
 /**
 	Section specific as well as headers, titles for sections
 */
