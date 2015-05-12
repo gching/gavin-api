@@ -75,14 +75,33 @@ $(document).ready(function(){
     // Trigger click on CV sect
     $('a[href=#cvSect]').trigger('click');
     // Send a toast saying hi name given params if it is there
-    var toast_string = (urlParams.name) ? 'Hi ' + urlParams.name + '! ' : 'Hi! ';
+    // Also, change the name on the HTML to say name
+    var toast_string;
+
+    if (urlParams.name){
+      toast_string = 'Hi ' + urlParams.name + '! ';
+      $('#nameCV').html('<strong>' + urlParams.name + '</strong>');
+    } else {
+      toast_string = 'Hi! ';
+    }
+
     toast_string += 'Welcome to my page and CV!';
+
     Materialize.toast(toast_string, 4000);
     setTimeout(function(){
-      Materialize.toast("Do contact me by clicking here!", 4000, 'rounded');
+      var contactString = 'Do contact me if you have any questions!'
+      Materialize.toast(contactString, 4000, 'rounded');
     }, 2000)
   }
 
+  // Scrollfire stuff
+  var options = [
+    {selector: "#summary", offset: 200, callback: 'Materialize.showStaggeredList("#summary")'},
+    {selector: "#generalNerd", offset: 200, callback: 'Materialize.showStaggeredList("#generalNerd")'},
+    {selector: ".whereCards", offset: 100, callback: 'Materialize.fadeInImage(".whereCards")'},
+    {selector: ".whyCards", offset: 100, callback: 'Materialize.fadeInImage(".whyCards")'}
+  ]
+  Materialize.scrollFire(options)
 })
 
 

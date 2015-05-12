@@ -17,7 +17,7 @@
   </div>
 
   <p class="flow-text">
-    Hi <strong>internet person</strong>, or the <strong>amazing and good looking person</strong> I directed to here. Listed are my experiences, hobbies, lifestyles and everything in between.
+    Hi <span id="nameCV"><strong>internet person</strong>, or the <strong>amazing and good looking person</strong> I directed to here</span>. Listed are my experiences, hobbies, lifestyles and everything in between.
   </p>
 
   <div class="center-align section">
@@ -30,7 +30,7 @@
   </div>
 
 
-  <ul class="collection with-header">
+  <ul id="summary" class="collection with-header">
     <li class="collection-header">
       <h2 class="light-blue-text">Summary of Skills</h2>
     </li>
@@ -52,7 +52,7 @@
   </ul>
 
   <h2 class="light-blue-text weight-200">Where</h2>
-  <div class="row">
+  <div class="row whereCards">
     <div class="col s12 l6">
       <% include ./educ/uoft.ejs %>
     </div>
@@ -62,7 +62,7 @@
   </div>
 
   <h2 class="light-blue-text weight-200">Why</h2>
-  <div class="row">
+  <div class="row whyCards">
     <div class="col s12">
       <% include ./work/felix.ejs %>
     </div>
@@ -73,6 +73,7 @@
       <% include ./work/apollo.ejs %>
     </div>
   </div>
+
   <h2 class="light-blue-text weight-200">How</h2>
   <% include ./skills/general %>
   <% include ./skills/front %>

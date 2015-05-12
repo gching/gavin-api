@@ -89,8 +89,24 @@ strong {
 }
 
 /**
-	Skills specific
+	CV specific
 */
+#summary li {
+	opacity: 0;
+}
+
+#generalNerd li {
+	opacity: 0;
+}
+
+.whereCards {
+	opacity: 0;
+}
+
+.whyCards {
+	opacity: 0;
+}
+
 .skill {
 	position: relative;
 	margin-bottom: 30px;
