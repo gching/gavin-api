@@ -1,5 +1,5 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
+<script type="text/javascript" src="javascripts/materialize.js"></script>
 <script type="text/javascript" src="javascripts/backgroundVideo.min.js"></script>
 <script type="text/javascript" src="javascripts/jquery.sticky-kit.min.js"></script>
 
@@ -31,12 +31,18 @@ $(document).ready(function(){
 
   // Enable sticky tabs
   $('#stickTabs').stick_in_parent();
+  //$('#stickTabs').pushpin({top: "100"});
 
   // Enable materialbox
   $('.materialboxed').materialbox();
 
   // Enable materialize parallax
   $('.parallax').parallax();
+
+  // Enable Scrollspy
+  $('.scrollspy').scrollSpy({
+    offsetTop: 500
+  });
 })
 
 

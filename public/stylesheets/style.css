@@ -30,10 +30,11 @@ strong {
 }
 
 .floating-arrow {
-	bottom: 170px;
+	bottom: -27.75px;
 	position: absolute;
   right: 50px;
   z-index: 1000;
+	margin: 0;
 }
 
 /**
@@ -109,6 +110,19 @@ strong {
 /**
 	Navigation bar
 */
-.stick-me {
+.stick-nav {
 	z-index: 2;
+	margin-bottom: 0px;
+}
+
+.nav-remove {
+	padding: 0 !important;
+}
+
+.tabs .indicator {
+	background-color: #fb8c00 !important;
+}
+
+.tabs .tab a {
+	color: #fb8c00 !important;
 }
