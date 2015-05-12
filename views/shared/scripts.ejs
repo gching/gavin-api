@@ -16,6 +16,23 @@ var setupBackgroundVideo = function setupBackgroundVideo(){
   return;
 };
 
+var getHashValue = function getHashValue(key) {
+  return location.hash.match(new RegExp(key+'=([^&]*)'))[1];
+};
+
+var urlParams;
+(window.onpopstate = function () {
+    var match,
+        pl     = /\+/g,  // Regex for replacing addition symbol with a space
+        search = /([^&=]+)=?([^&]*)/g,
+        decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+        query  = window.location.search.substring(1);
+
+    urlParams = {};
+    while (match = search.exec(query))
+       urlParams[decode(match[1])] = decode(match[2]);
+})();
+
 $(document).ready(function(){
 
   setupBackgroundVideo();
@@ -52,6 +69,20 @@ $(document).ready(function(){
   $('#contactButton').on('click', function(e){
     $('a[href=#contactSect]').trigger('click');
   });
+
+  // Logic for going to CV section with possible toast.
+  if (window.location.hash == "#cv"){
+    // Trigger click on CV sect
+    $('a[href=#cvSect]').trigger('click');
+    // Send a toast saying hi name given params if it is there
+    var toast_string = (urlParams.name) ? 'Hi ' + urlParams.name + '! ' : 'Hi! ';
+    toast_string += 'Welcome to my page and CV!';
+    Materialize.toast(toast_string, 4000);
+    setTimeout(function(){
+      Materialize.toast("Do contact me by clicking here!", 4000, 'rounded');
+    }, 2000)
+  }
+
 })
 
 
