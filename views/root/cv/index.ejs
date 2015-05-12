@@ -51,20 +51,29 @@
     </li>
   </ul>
 
+  <h2 class="light-blue-text weight-200">Where</h2>
   <div class="row">
-    <div id="stickCV" class="col s12 l6">
-      <h2 class="light-blue-text weight-200">Where</h2>
+    <div class="col s12 l6">
       <% include ./educ/uoft.ejs %>
-      <% include ./educ/nus.ejs %>
     </div>
     <div class="col s12 l6">
-      <h2 class="light-blue-text weight-200">Why</h2>
+      <% include ./educ/nus.ejs %>
+    </div>
+  </div>
+
+  <h2 class="light-blue-text weight-200">Why</h2>
+  <div class="row">
+    <div class="col s12">
       <% include ./work/felix.ejs %>
+    </div>
+    <div class="col s12">
       <% include ./work/nst.ejs %>
+    </div>
+    <div class="col s12">
       <% include ./work/apollo.ejs %>
     </div>
   </div>
-  <h2 class="light-blue-text center-align weight-200">How</h2>
+  <h2 class="light-blue-text weight-200">How</h2>
   <% include ./skills/general %>
   <% include ./skills/front %>
   <% include ./skills/back %>
