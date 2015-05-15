@@ -5,7 +5,7 @@
 
 <script>
 
-var setupBackgroundVideo = function setupBackgroundVideo(){
+var setupBackgroundVideo = function setupBackgroundVideo(callback){
   $('#my-video').backgroundVideo({
     $videoWrap: $('#video-wrap'),
     $outerWrap: $('#outer'),
@@ -13,7 +13,7 @@ var setupBackgroundVideo = function setupBackgroundVideo(){
     parallax: false
     //parallaxOptions: { effect: 1.7 }
   });
-  return;
+  callback();
 };
 
 var getHashValue = function getHashValue(key) {
@@ -33,15 +33,12 @@ var urlParams;
        urlParams[decode(match[1])] = decode(match[2]);
 })();
 
-$(document).ready(function(){
+var everythingReady = function everythingReady(){
+  $('.loader-body').addClass('loaded');
 
-  setupBackgroundVideo();
-  /*
-  setTimeout(function(){
-    $('.vid-header').show();
-    $('.loader-div').hide();
-  }, 100)
-*/
+  Materialize.fadeInImage('.vid-header')
+  Materialize.fadeInImage('.app')
+  Materialize.fadeInImage('footer')
 
   // Enable tabs
   $('ul.tabs').tabs();
@@ -101,7 +98,18 @@ $(document).ready(function(){
     {selector: ".whereCards", offset: 100, callback: 'Materialize.fadeInImage(".whereCards")'},
     {selector: ".whyCards", offset: 100, callback: 'Materialize.fadeInImage(".whyCards")'}
   ]
-  Materialize.scrollFire(options)
+  Materialize.scrollFire(options);
+}
+
+$(document).ready(function(){
+  setupBackgroundVideo(function(){
+    setTimeout(function(){
+      everythingReady();
+    }, 1000)
+
+  });
+
+
 })
 
 
