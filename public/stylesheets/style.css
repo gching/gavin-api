@@ -19,8 +19,12 @@ body {
 
 
 /** Loader 1 */
+.loader-spinner {
+	height: 64px;
+	width: 64px;
+	margin: auto;
+}
 .loader-help {
-	margin: 400px auto;
   position: relative;
 	z-index: 1001;
 }
