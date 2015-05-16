@@ -4,23 +4,26 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-var expressSession = require('express-session');
+//var mongoose = require('mongoose');
+//var expressSession = require('express-session');
 
+/*
 var DB = require('./config/DB');
 var mongo_config = require('./config/mongo_config');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+*/
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
-var chapters = require('./routes/chapters');
+//var users = require('./routes/users');
+//var chapters = require('./routes/chapters');
 
 
 
 var app = express();
 
 // DB stuff specifcally Mongo
+/** Remove mongo stuff till blog is completed **
 mongoose.connect("mongodb://localhost/gavins_blog", mongo_config);
 
 var chaptersSchema = mongoose.Schema({
@@ -33,6 +36,7 @@ var chaptersSchema = mongoose.Schema({
 var Chapter = mongoose.model("Chapter", chaptersSchema);
 
 DB.setDB(Chapter);
+*/
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -43,15 +47,15 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
-app.use(expressSession({secret: 'mySecretKey'}));
-app.use(passport.initialize());
-app.use(passport.session());
+//app.use(expressSession({secret: 'mySecretKey'}));
+//app.use(passport.initialize());
+//app.use(passport.session());
 
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/chapters', chapters);
+//app.use('/chapters', chapters);
 
 
 /// catch 404 and forward to error handler
