@@ -1,0 +1,8 @@
+// cloudinary_config.js.example
+// Declares the environment variables for Cloudinary
+
+module.exports = {
+  cloud_name: 'CLOUDINARY CLOUD NAME',
+  api_key: 'CLOUDINARY API KEY',
+  api_secret: 'CLOUDINARY API SECRET'
+};
