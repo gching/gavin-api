@@ -86,6 +86,12 @@ body {
 	z-index: 20;
 }
 
+.circle-header {
+	width: 200px;
+	height: 200px;
+	margin: auto;
+}
+
 strong {
 	color: #039be5;
 }

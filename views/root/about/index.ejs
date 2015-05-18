@@ -1,7 +1,6 @@
 <div class="parallax-container z-depth-3">
-  <div class="parallax"><img src="images/that-me1.jpg"></div>
+  <div class="parallax"><%-cloudinary.image('that-me1_rt1b2e.jpg', {fetch_format: 'auto'})%></div>
 </div>
-
 <div id="meSect" class="container section scrollspy">
 
   <h1 class="light-blue-text weight-200 z-depth-1 section-title center white">
@@ -13,7 +12,7 @@
     <div class="col s12 m6 l4">
       <div class="card">
         <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator"src="images/default_1.jpg">
+          <img class="activator"src="<%= cloudinary.url('default_1_ry93hh.jpg') %>">
         </div>
         <div class="card-content">
           <span class="card-title activator light-blue-text">Explorer
@@ -31,7 +30,7 @@
     <div class="col s12 m6 l4">
       <div class="card">
         <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="images/challenger.jpg">
+          <img class="activator" src="<%= cloudinary.url('challenger_llsvhg.jpg') %>">
         </div>
         <div class="card-reveal">
           <span class="card-title light-blue-text">
@@ -50,7 +49,7 @@
     <div class="col s12 m6 l4">
       <div class="card ">
         <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="images/developer.jpg">
+          <img class="activator" src="<%= cloudinary.url('developer_cogxzx.jpg') %>">
         </div>
         <div class="card-reveal">
           <span class="card-title light-blue-text">
@@ -70,7 +69,7 @@
     <div class="col s12 m6 l4">
       <div class="card">
         <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="images/weirdo.jpg">
+          <img class="activator" src="<%= cloudinary.url('weirdo_xsztte.jpg') %>">
         </div>
         <div class="card-reveal">
           <span class="card-title light-blue-text">
@@ -88,7 +87,7 @@
     <div class="col s12 m6 l4">
       <div class="card">
         <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="images/default_3.jpg">
+          <img class="activator" src="<%= cloudinary.url('default_3_tc35kt.jpg') %>">
         </div>
         <div class="card-reveal">
           <span class="card-title light-blue-text">
@@ -106,7 +105,7 @@
     <div class="col s12 m6 l4">
       <div class="card">
         <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="images/lover.jpg">
+          <img class="activator" src="<%= cloudinary.url('lover_ys8xpv.jpg') %>">
         </div>
         <div class="card-reveal">
           <span class="card-title light-blue-text">

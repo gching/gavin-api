@@ -7,6 +7,18 @@ var bodyParser = require('body-parser');
 //var mongoose = require('mongoose');
 //var expressSession = require('express-session');
 
+// Setup cloudinary with it's configuration in root/config
+// If it is not there, console warn saying theres an error!
+var cloudinary = require('cloudinary');
+var cloudinary_config = require('./config/cloudinary_config');
+if (!cloudinary_config){
+  console.warn("Cloudinary config not defined!");
+} else {
+  cloudinary.config(cloudinary_config);
+}
+
+
+
 /*
 var DB = require('./config/DB');
 var mongo_config = require('./config/mongo_config');
@@ -54,6 +66,10 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+// PreRequest Handler
+preRequestHandler(app);
+
 app.use('/', routes);
 //app.use('/chapters', chapters);
 
@@ -93,5 +109,17 @@ app.use(function(err, req, res, next) {
     });
 });
 
+// pre request handler
+// Helps setup Cloudinary so it can be accessed in view templates
+function preRequestHandler(app){
+  app.use(function(req, res, next){
+    if (!cloudinary_config){
+      throw new Error("Missing Cloudinary configuration");
+    } else {
+      res.locals.cloudinary = cloudinary;
+      next();
+    }
+  });
+}
 
 module.exports = app;
