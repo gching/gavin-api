@@ -69,6 +69,23 @@ app.locals.trans = {
     flags: "progressive"
   },
 
+  // Expose common transform and setting width to 100 - For logos
+  common_logo_w: {
+    width: 100,
+    crop: "scale",
+    fetch_format: "auto",
+    flags: "progressive"
+  },
+
+  // Expose common transform and setting height to 100 - For logos
+  common_logo_h: {
+    height: 100,
+    crop: "scale",
+    fetch_format: "auto",
+    flags: "progressive"
+  },
+
+
   // Expose a special transform for specifically lossy converting PNG to JPEG
   common_lossy:{
     fetch_format: "auto",
