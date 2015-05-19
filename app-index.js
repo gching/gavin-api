@@ -19,6 +19,7 @@ if (!cloudinary_config){
 
 
 
+
 /*
 var DB = require('./config/DB');
 var mongo_config = require('./config/mongo_config');
@@ -53,6 +54,27 @@ DB.setDB(Chapter);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+// Setup App locals for global transform objects used with cloudinary.
+app.locals.trans = {
+  // Expose transform of fetch: auto and flag: progressive
+  // Pretty much used for everything other then specific images
+  common: {fetch_format: "auto", flags: "progressive"},
+
+  // Expose common transform given above, including setting the image
+  // width to 1920 and scaling it to that if the image is too big
+  common_scale: {
+    width: 1920,
+    crop: "scale",
+    fetch_format: "auto",
+    flags: "progressive"
+  },
+
+  // Expose a special transform for specifically lossy converting PNG to JPEG
+  common_lossy:{
+    fetch_format: "auto",
+    flags: ["progressive", "lossy"]
+  }
+};
 
 app.use(favicon());
 app.use(logger('dev'));
@@ -111,11 +133,14 @@ app.use(function(err, req, res, next) {
 
 // pre request handler
 // Helps setup Cloudinary so it can be accessed in view templates
+// As well, has the general transformation variables exposed to the view to clean
+// up reusage of common tranforms.
 function preRequestHandler(app){
   app.use(function(req, res, next){
     if (!cloudinary_config){
       throw new Error("Missing Cloudinary configuration");
     } else {
+      // Expose cloudinary
       res.locals.cloudinary = cloudinary;
       next();
     }
