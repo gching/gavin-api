@@ -1,9 +1,7 @@
 <div id="outer" style="width: 100%; height: 100%; position: relative;">
   <div id="video-wrap">
 
-    <video id="my-video" preload="metadata" autoplay loop>
-      <source src="videos/gavin_low.mp4" type="video/mp4">
-    </video>
+    <%- cloudinary.video('gavin_low_y1xrgg', {video_codec: 'auto', autoplay: true, id: 'my-video', loop: true}) %>
 
     <div class="valign-wrapper content-overlay" style="height: 100%;">
       <div class="valign center-align container" style="">
