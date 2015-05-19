@@ -87,10 +87,21 @@ body {
 }
 
 .circle-header {
-	width: 200px;
-	height: 200px;
+	width: 100%;
+	height: 100%
 	margin: auto;
 }
+
+.circle-header img {
+	max-height: 150px;
+	max-width: 150px;
+}
+
+.icons a {
+	width: 26px;
+}
+
+
 
 strong {
 	color: #039be5;
