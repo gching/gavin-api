@@ -78,6 +78,14 @@ body {
 	font-weight: 200;
 }
 
+.size-16 {
+	font-size: 16px;
+}
+
+strong {
+	color: #039be5;
+}
+
 /**
 	Video Banner
 */
@@ -95,16 +103,6 @@ body {
 .circle-header img {
 	max-height: 150px;
 	max-width: 150px;
-}
-
-.icons a {
-	width: 26px;
-}
-
-
-
-strong {
-	color: #039be5;
 }
 
 .floating-arrow {
@@ -189,12 +187,14 @@ strong {
 	position: relative;
 	margin-bottom: 30px;
 	min-height: 150px;
+	min-width: 100px;
 }
 .skill h5 {
 	position: absolute;
 	left: 0;
 	bottom: 0;
 	width: 100%;
+	font-size: 1.40rem;
 }
 .skills-collection img {
 	max-width: 100px;
