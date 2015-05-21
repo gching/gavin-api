@@ -4,6 +4,7 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var device = require('express-device');
 //var mongoose = require('mongoose');
 //var expressSession = require('express-session');
 
@@ -98,6 +99,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
+app.use(device.capture());
 //app.use(expressSession({secret: 'mySecretKey'}));
 //app.use(passport.initialize());
 //app.use(passport.session());
@@ -148,11 +150,19 @@ app.use(function(err, req, res, next) {
     });
 });
 
-// pre request handler
-// Helps setup Cloudinary so it can be accessed in view templates
-// As well, has the general transformation variables exposed to the view to clean
-// up reusage of common tranforms.
+
+/**
+  #preRequestHandler
+  Helps setup Cloudinary to be accessed in view templates and setups the device
+  information to be accessed as well
+  @param{app} - Express app
+*/
 function preRequestHandler(app){
+
+  // Enable requests to gain helpers for detecting what the device of the request
+  // is.
+  device.enableDeviceHelpers(app);
+
   app.use(function(req, res, next){
     if (!cloudinary_config){
       throw new Error("Missing Cloudinary configuration");
