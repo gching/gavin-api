@@ -55,45 +55,6 @@ DB.setDB(Chapter);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// Setup App locals for global transform objects used with cloudinary.
-app.locals.trans = {
-  // Expose transform of fetch: auto and flag: progressive
-  // Pretty much used for everything other then specific images
-  common: {fetch_format: "auto", flags: "progressive"},
-
-  // Expose common transform given above, including setting the image
-  // width to 1920 and scaling it to that if the image is too big
-  common_scale: {
-    width: 1920,
-    crop: "scale",
-    fetch_format: "auto",
-    flags: "progressive"
-  },
-
-  // Expose common transform and setting width to 100 - For logos
-  common_logo_w: {
-    width: 100,
-    crop: "scale",
-    fetch_format: "auto",
-    flags: "progressive"
-  },
-
-  // Expose common transform and setting height to 100 - For logos
-  common_logo_h: {
-    height: 100,
-    crop: "scale",
-    fetch_format: "auto",
-    flags: "progressive"
-  },
-
-
-  // Expose a special transform for specifically lossy converting PNG to JPEG
-  common_lossy:{
-    fetch_format: "auto",
-    flags: ["progressive", "lossy"]
-  }
-};
-
 app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -154,7 +115,9 @@ app.use(function(err, req, res, next) {
 /**
   #preRequestHandler
   Helps setup Cloudinary to be accessed in view templates and setups the device
-  information to be accessed as well
+  information to be accessed as well.
+  We also set in transforms for Cloudinary and depending on the device, we set
+  the width the picture should be fetched at, as well as quality.
   @param{app} - Express app
 */
 function preRequestHandler(app){
@@ -167,8 +130,60 @@ function preRequestHandler(app){
     if (!cloudinary_config){
       throw new Error("Missing Cloudinary configuration");
     } else {
+
       // Expose cloudinary
       res.locals.cloudinary = cloudinary;
+
+      // Setup the transform objects for Cloudinary
+      // We basically scale the image down to the device's resolution.
+      // Phone has w600, Tablet has w992, and Desktop has w1920 (default)
+      var pic_width;
+      if (res.locals.is_mobile){
+        pic_width = 600;
+      } else if (res.locals.is_tablet){
+        pic_width = 992;
+      } else { // Desktop and others.
+        pic_width = 1920;
+      }
+      // Setup the main transform that most images uses for fetching as well
+      // as commonly used tranfroms.
+      res.locals.trans = {
+
+        // Expose transform of fetch: auto and flag: progressive
+        // Pretty much used for everything other then specific images
+        common: {
+          fetch_format: "auto",
+          flags: "progressive",
+          width: pic_width,
+          crop: "scale"
+        },
+
+        // Expose common transform and setting width to 100 - For logos
+        common_logo_w: {
+          width: 100,
+          crop: "scale",
+          fetch_format: "auto",
+          flags: "progressive"
+        },
+
+        // Expose common transform and setting height to 100 - For logos
+        common_logo_h: {
+          height: 100,
+          crop: "scale",
+          fetch_format: "auto",
+          flags: "progressive"
+        },
+
+
+        // Expose a special transform for specifically lossy converting PNG to JPEG
+        common_lossy:{
+          fetch_format: "auto",
+          flags: ["progressive", "lossy"]
+        }
+      };
+      console.log(res.locals.trans);
+
+
       next();
     }
   });
