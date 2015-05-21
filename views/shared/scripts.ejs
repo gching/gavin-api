@@ -36,10 +36,6 @@ var urlParams;
 var everythingReady = function everythingReady(){
   $('.loader-body').addClass('loaded');
 
-  Materialize.fadeInImage('.vid-header')
-  Materialize.fadeInImage('.app')
-  Materialize.fadeInImage('footer')
-
   // Enable tabs
   $('ul.tabs').tabs();
 
@@ -50,8 +46,12 @@ var everythingReady = function everythingReady(){
   // Enable materialbox
   $('.materialboxed').materialbox();
 
-  // Enable materialize parallax
-  $('.parallax').parallax();
+  // Enable materialize parallax if it is not mobile
+  <% if (is_mobile) { %>
+    $('.parallax img').addClass("parallaxMobile");
+  <% } else { %>
+    $('.parallax').parallax();
+  <% } %>
 
   // Enable Scrollspy
   $('.scrollspy').scrollSpy({
