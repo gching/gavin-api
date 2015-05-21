@@ -136,6 +136,7 @@ strong {
 	display: block !important;
 	position: absolute !important;
 	bottom: 0 !important;
+	transform: translateX(0%) !important;
 }
 
 /**
