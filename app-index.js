@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var device = require('express-device');
+var compress = require('compression');
 //var mongoose = require('mongoose');
 //var expressSession = require('express-session');
 
@@ -55,6 +56,7 @@ DB.setDB(Chapter);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(compress());
 app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
