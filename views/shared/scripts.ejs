@@ -47,10 +47,23 @@ var everythingReady = function everythingReady(){
   $('.materialboxed').materialbox();
 
   // Enable materialize parallax if it is not mobile
+  // As well, only enable scrollfire for anything other then mobile
   <% if (is_mobile) { %>
     $('.parallax img').addClass("parallaxMobile");
+    $('#summary li').css("opacity", 10);
+    $('#generalNerd li').css("opacity", 10);
+    $('.whereCards').css("opacity", 10);
+    $('.whyCards').css("opacity", 10)
   <% } else { %>
     $('.parallax').parallax();
+    // Scrollfire stuff
+    var options = [
+      {selector: "#summary", offset: 200, callback: 'Materialize.showStaggeredList("#summary")'},
+      {selector: "#generalNerd", offset: 200, callback: 'Materialize.showStaggeredList("#generalNerd")'},
+      {selector: ".whereCards", offset: 100, callback: 'Materialize.fadeInImage(".whereCards")'},
+      {selector: ".whyCards", offset: 100, callback: 'Materialize.fadeInImage(".whyCards")'}
+    ]
+    Materialize.scrollFire(options);
   <% } %>
 
   // Enable Scrollspy
@@ -91,14 +104,7 @@ var everythingReady = function everythingReady(){
     }, 2000)
   }
 
-  // Scrollfire stuff
-  var options = [
-    {selector: "#summary", offset: 200, callback: 'Materialize.showStaggeredList("#summary")'},
-    {selector: "#generalNerd", offset: 200, callback: 'Materialize.showStaggeredList("#generalNerd")'},
-    {selector: ".whereCards", offset: 100, callback: 'Materialize.fadeInImage(".whereCards")'},
-    {selector: ".whyCards", offset: 100, callback: 'Materialize.fadeInImage(".whyCards")'}
-  ]
-  Materialize.scrollFire(options);
+
 }
 
 $(document).ready(function(){
