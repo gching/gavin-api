@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "body-parser": "~1.0.0",
-    "cloudinary": "^1.2.1",
+    "cloudinary": "https://github.com/gching/cloudinary_npm/tarball/fix/mutating-args",
     "cookie-parser": "~1.0.1",
     "debug": "~0.7.4",
     "ejs": "~2.3.1",
