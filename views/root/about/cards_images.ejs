@@ -1,0 +1,10 @@
+<% if (!is_mobile) {%>
+  <div class="card-image waves-effect waves-block waves-light">
+    <img class="activator"
+    src="<%= cloudinary.url(pic_id, trans.common_card) %>">
+  </div>
+<% } else { %>
+  <div class="card-image">
+    <img src="<%= cloudinary.url(pic_id, trans.common_card) %>">
+  </div>
+<% } %>
