@@ -137,13 +137,18 @@ function preRequestHandler(app){
       // Setup the transform objects for Cloudinary
       // We basically scale the image down to the device's resolution.
       // Phone has w600, Tablet has w992, and Desktop has w1920 (default)
+      // We also have a card width for images that are carded.
       var pic_width;
+      var card_width;
+      var card_width_2;
       if (res.locals.is_mobile){
-        pic_width = 600;
+        pic_width = card_width = card_width_2 = 600;
       } else if (res.locals.is_tablet){
-        pic_width = 992;
+        pic_width = card_width = card_width_2 = 992;
       } else { // Desktop and others.
         pic_width = 1920;
+        card_width = 640;
+        card_width_2 = 960;
       }
       // Setup the main transform that most images uses for fetching as well
       // as commonly used tranfroms.
@@ -155,7 +160,29 @@ function preRequestHandler(app){
           fetch_format: "auto",
           flags: "progressive",
           width: pic_width,
-          crop: "scale"
+          crop: "scale",
+          quality: 40
+        },
+
+        // Expose transform for card pictures that just have a smaller width.
+        // Mainly for cards split in a row of 3
+        common_card: {
+          fetch_format: "auto",
+          flags: "progressive",
+          width: card_width,
+          crop: "scale",
+          quality: 50
+
+        },
+
+        // Expose a transform for card pictures that split the grid in 2
+        common_card_2: {
+          fetch_format: "auto",
+          flags: "progressive",
+          width: card_width_2,
+          crop: "scale",
+          quality: 40
+
         },
 
         // Expose common transform and setting width to 100 - For logos
@@ -163,7 +190,9 @@ function preRequestHandler(app){
           width: 100,
           crop: "scale",
           fetch_format: "auto",
-          flags: "progressive"
+          flags: "progressive",
+          quality: 80
+
         },
 
         // Expose common transform and setting height to 100 - For logos
@@ -171,17 +200,20 @@ function preRequestHandler(app){
           height: 100,
           crop: "scale",
           fetch_format: "auto",
-          flags: "progressive"
+          flags: "progressive",
+          quality: 80
+
         },
 
 
         // Expose a special transform for specifically lossy converting PNG to JPEG
         common_lossy:{
           fetch_format: "auto",
-          flags: ["progressive", "lossy"]
+          flags: ["progressive", "lossy"],
+          quality: 75
+
         }
       };
-      console.log(res.locals.trans);
 
 
       next();
