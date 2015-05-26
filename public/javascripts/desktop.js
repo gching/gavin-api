@@ -86,23 +86,23 @@ var everythingReady = function everythingReady(){
 
     toast_string += 'Welcome to my page and CV!';
 
-    Materialize.toast(toast_string, 4000);
+    Materialize.toast(toast_string, 6000);
     setTimeout(function(){
-      var contactString = 'Do contact me if you have any questions!'
-      Materialize.toast(contactString, 4000, 'rounded');
-    }, 2000)
+      var contactString = 'Do contact me if you have any questions!';
+      Materialize.toast(contactString, 6000, 'rounded');
+    }, 3000);
   }
 
 
-}
+};
 
 $(document).ready(function(){
   setupBackgroundVideo(function(){
     setTimeout(function(){
       everythingReady();
-    }, 1000)
+    }, 1000);
 
   });
 
 
-})
+});

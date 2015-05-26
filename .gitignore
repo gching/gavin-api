@@ -5,3 +5,6 @@ config/mongo_config.js
 
 ## Ignore Cloudinary config
 config/cloudinary_config.js
+
+## Deploy Pass
+deploy
