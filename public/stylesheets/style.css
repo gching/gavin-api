@@ -184,12 +184,17 @@ strong {
 	opacity: 0;
 }
 
+
 .whereCards {
 	opacity: 0;
 }
 
 .whyCards {
 	opacity: 0;
+}
+
+.whyCards .collapse-container {
+	padding: 20px 5px 20px 5px;
 }
 
 .skill {

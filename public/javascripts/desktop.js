@@ -31,6 +31,10 @@ var urlParams;
 })();
 
 var everythingReady = function everythingReady(){
+  // Change collapse container in cvs to be normal container
+  $('.collapse-container').addClass('container');
+  $('.collapse-container').removeClass('collapse-container');
+
   $('.loader-body').addClass('loaded');
 
   // Enable tabs

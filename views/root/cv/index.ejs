@@ -65,16 +65,54 @@
   </div>
 
   <h2 class="light-blue-text weight-200">Why</h2>
-  <div class="row whyCards">
-    <div class="col s12">
-      <% include ./work/felix.ejs %>
-    </div>
-    <div class="col s12">
-      <% include ./work/nst.ejs %>
-    </div>
-    <div class="col s12">
-      <% include ./work/apollo.ejs %>
-    </div>
+  <div class="whyCards">
+    <ul class="collapsible popout" data-collapsible="expandable">
+   <li>
+     <div class="collapsible-header light-blue"><i class="mdi-action-android"></i>Tech
+       <i class="mdi-navigation-expand-more right"></i></div>
+     <div class="collapsible-body">
+       <div class="collapse-container">
+         <% include ./work/felix.ejs %>
+         <% include ./work/apollo.ejs %>
+       </div>
+     </div>
+   </li>
+   <li>
+     <div class="collapsible-header light-blue"><i class="mdi-social-whatshot"></i>Marketing<i class="mdi-navigation-expand-more right"></i></div>
+     <div class="collapsible-body">
+       <div class="collapse-container">
+        <% include ./work/nst.ejs %>
+       </div>
+     </div>
+   </li>
+   <li>
+     <div class="collapsible-header light-blue"><i class="mdi-social-group-add"></i>Sales<i class="mdi-navigation-expand-more right"></i></div>
+     <div class="collapsible-body">
+      <div class="collapse-container">
+        <% include ./work/corp.ejs %>
+      </div>
+     </div>
+   </li>
+   <li>
+     <div class="collapsible-header light-blue"><i class="mdi-social-poll"></i>Engagement<i class="mdi-navigation-expand-more right"></i></div>
+     <div class="collapsible-body">
+      <div class="collapse-container">
+        <% include ./work/mem_engage.ejs %>
+        <% include ./work/sports.ejs %>
+        <% include ./work/ep_engage.ejs %>
+      </div>
+     </div>
+   </li>
+   <li>
+     <div class="collapsible-header active light-blue"><i class="mdi-image-nature-people"></i>Volunteer<i class="mdi-navigation-expand-more right"></i></div>
+     <div class="collapsible-body">
+      <div class="collapse-container">
+        <% include ./work/farming.ejs %>
+      </div>
+     </div>
+   </li>
+ </ul>
+
   </div>
 
   <h2 class="light-blue-text weight-200">How</h2>
