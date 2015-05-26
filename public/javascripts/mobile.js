@@ -73,8 +73,9 @@ var everythingReady = function everythingReady(){
     var toast_string;
 
     if (urlParams.name){
-      toast_string = 'Hi ' + urlParams.name + '! ';
-      $('#nameCV').html('<strong>' + urlParams.name + '</strong>');
+      var escaped_name = $('<div>').text(urlParams.name).html();
+      toast_string = 'Hi ' + escaped_name + '! ';
+      $('#nameCV').html('<strong>' + escaped_name + '</strong>');
     } else {
       toast_string = 'Hi! ';
     }
