@@ -87,6 +87,12 @@ var everythingReady = function everythingReady(){
       var contactString = 'Do contact me if you have any questions!';
       Materialize.toast(contactString, 6000, 'rounded');
     }, 3000);
+  } else {
+    setTimeout(function(){
+      Materialize.toast("By the way!", 6000, 'rounded');
+      Materialize.toast("I can bring your idea into life!", 6000, 'rounded');
+      Materialize.toast("Contact me!", 6000, 'rounded');
+    }, 5000);
   }
 
 
